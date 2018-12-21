@@ -31,69 +31,6 @@ public:
         norm_est.setNormalSmoothingSize(10.0f);
         norm_est.setInputCloud (cloud);
         norm_est.compute (*normals_out);
-//        // Create a shared plane model pointer directly
-//        pcl::SampleConsensusModelNormalPlane<pcl::PointXYZRGBA, pcl::Normal>::Ptr
-//         model (new pcl::SampleConsensusModelNormalPlane<pcl::PointXYZRGBA, pcl::Normal> (cloud));
-//        // Set normals
-//        model->setInputNormals(normals_out);
-////        model.setInputNormals(normals_out);
-//        // Set the normal angular distance weight.
-//        model->setNormalDistanceWeight(0.5f);
-////        model.setNormalDistanceWeight(0.5f);
-//        // Create the RANSAC object
-//        pcl::RandomSampleConsensus<pcl::PointXYZRGBA> sac (model, 0.03);
-//        // perform the segmenation step
-//        bool result = sac.computeModel ();
-    }
-
-    void Extract_Object(const pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud,
-                        pcl::PointCloud<pcl::PointXYZRGBA>::Ptr &cloud_objects) {
-        // Input
-//        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_objects; // points belonging to objects
-        // Output vector of objects, one point cloud per object
-        std::vector<pcl::PointCloud<pcl::PointXYZRGBA>::Ptr> objects;
-        pcl::EuclideanClusterExtraction<pcl::PointXYZRGBA> cluster;
-        cluster.setInputCloud(cloud_objects);
-        std::vector<pcl::PointIndices> object_clusters;
-        cluster.extract(object_clusters);
-        pcl::ExtractIndices<pcl::PointXYZRGBA> extract_object_indices;
-//        std::cout << "size of object: " << object_clusters.size() << std::endl;
-
-        int color_1[10] = {255,0,0,255,0,255};
-        int color_2[10] = {0,255,0,255,255,0};
-        int color_3[10] = {0,0,255,0,255,255};
-        double distance = 11;
-        DeterminePosition dp;
-        pcl::PointXYZRGBA pointOXYZ;
-        pointOXYZ.x = 0;
-        pointOXYZ.y = 0;
-        pointOXYZ.z = 0;
-        for(int i=0; i < object_clusters.size(); ++i) {
-            pcl::PointCloud<pcl::PointXYZRGBA>::Ptr object_cloud(new pcl::PointCloud<pcl::PointXYZRGBA>);
-            extract_object_indices.setInputCloud(cloud);
-            extract_object_indices.setIndices(
-                    boost::make_shared<const pcl::PointIndices>(object_clusters[i]));
-            extract_object_indices.filter(*object_cloud);
-//            std::cerr << object_cloud->points[0] << std::endl;
-//            objects.push_back(object_cloud);
-            cloud_objects->points.resize (cloud->size ());
-//            std::cout << "size of cluster_indices: " << cluster_indices[j].indices.size () << std::endl;
-//                    cloud_out->header   = cloud->header;
-//                    cloud_out->width    = cloud->width;
-//                    cloud_out->height   = 1;
-//                    cloud_out->is_dense = cloud->is_dense;
-//                    cloud_out->sensor_orientation_ = cloud->sensor_orientation_;
-//                    cloud_out->sensor_origin_ = cloud->sensor_origin_;
-            for (int j = 0; j < object_clusters[i].indices.size (); ++j) {
-                cloud_objects->points[j] = cloud->points[object_clusters[i].indices[j]];
-                cloud_objects->points[j].r = color_1[i%6];
-                cloud_objects->points[j].g = color_2[i%6];
-                cloud_objects->points[j].b = color_3[i%6];
-                double poinTopoint = dp.DistanceFromPointToPoint(pointOXYZ, cloud_objects->points[j]);
-
-            }
-        }
-//        std::cout <<
     }
 
     void removeTable(const pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud,
@@ -150,6 +87,19 @@ public:
             coeff.push_back(coefficients[i]);
         }
         table_coefficients->values = coeff;
+
+//        int position = 0;
+
+        pcl::copyPointCloud(*cloud, *cloud_out);
+//
+//        for (int i=0; i<inliers.size(); i++) {
+//            cloud_out->points[inliers[i]].r = 255;
+//            cloud_out->points[inliers[i]].b = 0;
+//            cloud_out->points[inliers[i]].g = 165;
+//
+//        }
+
+
 //        double st_1 = pcl::getTime ();
 //        removeTable(cloud, indices, table_coefficients, *cloud_out);
 //        std::cout << "fps of remove plane = " << 1.0/(pcl::getTime() - st_1) <<std::endl;
@@ -188,21 +138,21 @@ public:
                 OXYZ.z = 0;
                 DeterminePosition dp;
                 for (int j=0; j<cluster_indices.size(); j++) {
-                    cloud_out->points.resize (cloud->size ());
+//                    cloud_out->points.resize (cloud->size ());
                     for (int i = 0; i < cluster_indices[j].indices.size (); ++i) {
-                        cloud_out->points[i+position] = cloud->points[cluster_indices[j].indices[i]];
-                        cloud_out->points[i+position].r = color_1[j%6];
-                        cloud_out->points[i+position].g = color_2[j%6];
-                        cloud_out->points[i+position].b = color_3[j%6];
-                        double pointTopoint = dp.DistanceFromPointToPoint(OXYZ, cloud_out->points[i+position]);
+//                        cloud_out->points[i+position] = cloud->points[cluster_indices[j].indices[i]];
+                        cloud_out->points[cluster_indices[j].indices[i]].r = color_1[j%6];
+                        cloud_out->points[cluster_indices[j].indices[i]].g = color_2[j%6];
+                        cloud_out->points[cluster_indices[j].indices[i]].b = color_3[j%6];
+                        double pointTopoint = dp.DistanceFromPointToPoint(OXYZ, cloud_out->points[cluster_indices[j].indices[i]]);
                         double point1ToPlane = dp.DistanceFromPointToPlance(coefficients, OXYZ);
-                        double point2ToPlane = dp.DistanceFromPointToPlance(coefficients,cloud_out->points[i+position]);
+                        double point2ToPlane = dp.DistanceFromPointToPlance(coefficients,cloud_out->points[cluster_indices[j].indices[i]]);
                         double dis = dp.DistanceHeight(pointTopoint, point1ToPlane, point2ToPlane);
                         if (distance > dis) distance = dis;
                     }
                     position += cluster_indices[j].indices.size ();
                 }
-                std::cout << "distance = " << distance << std::endl;
+                std::cout << "size of object = " << cluster_indices.size() << " " << "distance = " << distance << std::endl;
             }
 
 //            std::cout << "fps of labeling = " << 1.0/(pcl::getTime() - st) <<std::endl;
@@ -219,7 +169,7 @@ public:
         if (++count == 1) {
             double now = pcl::getTime ();
 //            std::cout << "so la: " << (cloud->width >> 1) * (cloud->height + 1) << std::endl;
-            std::cout << "distance of center pixel :" << cloud->points [(cloud->width >> 1) * (cloud->height + 1)].z << " mm. Average framerate: " << double(count)/double(now - last) << " Hz" <<  std::endl;
+//            std::cout << "distance of center pixel :" << cloud->points [(cloud->width >> 1) * (cloud->height + 1)].z << " mm. Average framerate: " << double(count)/double(now - last) << " Hz" <<  std::endl;
             count = 0;
             last = now;
         }
@@ -228,7 +178,7 @@ public:
         pcl::VoxelGrid<pcl::PointXYZRGBA> sor;
         pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud_out(new pcl::PointCloud<pcl::PointXYZRGBA>);
         sor.setInputCloud (cloud);
-        sor.setLeafSize (0.02f, 0.02f, 0.02f);
+        sor.setLeafSize (0.01f, 0.01f, 0.01f);
         sor.filter(*cloud_out);
         applyRANSAC2(cloud_out, cloud_out, true);
         std::cout << "fps of VoxelGrid = " << 1.0/(pcl::getTime() - st2) <<std::endl;
