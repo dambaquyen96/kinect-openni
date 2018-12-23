@@ -1,3 +1,0 @@
-/home/hunglv/project/openni-test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/hunglv/project/openni-test/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/hunglv/project/openni-test/cmake-build-debug/CMakeFiles/openni_grabber.dir

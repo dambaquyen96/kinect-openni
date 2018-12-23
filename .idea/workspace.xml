@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="openni_grabber" targetName="openni_grabber" />
     </generated>
@@ -12,12 +12,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f9d681f5-cb53-448e-a5c3-a26f338f8a06" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Location.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dectect_object_bak.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.12.1/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.12.1/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.12.1/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.12.1/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.12.1/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.12.1/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.12.1/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.12.1/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.12.1/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeError.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/feature_tests.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/openni_grabber.dir/openni_grabber.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/openni_grabber" beforeDir="false" afterPath="$PROJECT_DIR$/build/openni_grabber" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.3/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.3/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.3/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.3/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.3/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.3/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.3/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.12.3/CompilerIdCXX/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/build.make" afterDir="false" />
@@ -26,11 +72,12 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/openni_grabber.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/openni_grabber.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/openni_grabber.dir/openni_grabber.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/openni_grabber" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/openni_grabber" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/openni_grabber.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/openni_grabber.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dectect_object.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/dectect_object.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openni_grabber.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/openni_grabber.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,115 +87,18 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
-  <component name="FUSProjectUsageTrigger">
-    <session id="1457197997">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="30" />
-          <entry key="project.open.time.1" value="5" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.12" value="2" />
-          <entry key="project.open.time.13" value="7" />
-          <entry key="project.open.time.14" value="4" />
-          <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.16" value="2" />
-          <entry key="project.open.time.17" value="1" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="1" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.4" value="4" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="32" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="cbp" value="1" />
-          <entry key="cpp" value="10" />
-          <entry key="h" value="71" />
-          <entry key="hpp" value="18" />
-          <entry key="jpg" value="4" />
-          <entry key="openni_grabber (disassembly)" value="2" />
-          <entry key="txt" value="3" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="CMakeLists.txt" value="3" />
-          <entry key="Disassembly" value="2" />
-          <entry key="Image" value="4" />
-          <entry key="ObjectiveC" value="99" />
-          <entry key="PLAIN_TEXT" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="cpp" value="11431" />
-          <entry key="h" value="556" />
-          <entry key="hpp" value="2" />
-          <entry key="txt" value="46" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="CMakeLists.txt" value="46" />
-          <entry key="ObjectiveC" value="11989" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dectect_object.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="145" column="37" selection-start-line="145" selection-start-column="37" selection-end-line="145" selection-end-column="37" />
+            <state relative-caret-position="240">
+              <caret line="216" column="26" lean-forward="true" selection-start-line="216" selection-start-column="26" selection-end-line="216" selection-end-column="26" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
+                <element signature="e#1413#1906#0" />
+                <element signature="e#1413#1446#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/pcl-1.7/pcl/impl/point_types.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8505">
-              <caret line="567" selection-start-line="567" selection-end-line="567" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/pcl-1.7/pcl/search/impl/organized.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5100">
-              <caret line="340" column="9" selection-start-line="340" selection-start-column="6" selection-end-line="340" selection-end-column="12" />
-              <folding>
-                <element signature="e#1854#1887#0" expanded="true" />
-                <element signature="e#2080#2097#0" expanded="true" />
-                <element signature="e#4560#4577#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/pcl-1.7/pcl/search/search.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6030">
-              <caret line="402" column="27" selection-start-line="402" selection-start-column="27" selection-end-line="402" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/include/pcl-1.7/pcl/pcl_macros.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1680">
-              <caret line="112" column="38" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -156,8 +106,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+            <state relative-caret-position="300">
+              <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -176,10 +126,19 @@
       <find>&gt;&gt;</find>
       <find>Determin</find>
       <find>applyRANSAC2</find>
-      <find>indices</find>
       <find>cloud_out</find>
       <find>pcl::Point</find>
       <find>Input</find>
+      <find>removeTable</find>
+      <find>SimpleOpenNIViewer</find>
+      <find>viewer2</find>
+      <find>#include &lt;pcl/visualization/pcl_visualizer.h&gt;</find>
+      <find>st_1</find>
+      <find>OXYZ</find>
+      <find>DistanceFromPointToPoint</find>
+      <find>dp</find>
+      <find>indices</find>
+      <find>cloud2Frame</find>
     </findStrings>
     <replaceStrings>
       <replace>PointXYZRGBA&gt;</replace>
@@ -199,12 +158,6 @@
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="75" />
@@ -218,29 +171,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="openni_grabber" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openni-test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="openni_grabber" type="b2602c69:ProjectViewProjectNode" />
-              <item name="openni-test" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="kinect-openni" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -312,11 +266,12 @@
       <workItem from="1545466753381" duration="9447000" />
       <workItem from="1545485421586" duration="12351000" />
       <workItem from="1545531242864" duration="1437000" />
+      <workItem from="1545532917004" duration="17164000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119151000" />
+    <option name="totallyTimeSpent" value="136315000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -328,25 +283,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21434262" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21693414" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23757765" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23650108" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39906833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32972136" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" weight="0.2872671" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32972136" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.28725702" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32937366" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="CMake" order="12" weight="0.21428572" />
+      <window_info anchor="bottom" id="CMake" order="12" weight="0.2138229" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24940239" />
@@ -356,66 +311,15 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file:///usr/include/pcl-1.7/pcl/io/grabber.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-155">
-          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/5/bits/stl_algo.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="5219" column="4" selection-start-line="5219" selection-start-column="4" selection-end-line="5219" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/filters/project_inliers.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="258" column="9" selection-start-line="258" selection-start-column="6" selection-end-line="258" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/ModelCoefficients.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="53" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/filters/extract_indices.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="43" lean-forward="true" selection-start-line="42" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/c++/5/bits/stl_vector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="912" column="6" selection-start-line="912" selection-start-column="6" selection-end-line="912" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/sample_consensus/sac.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="299" column="54" selection-start-line="299" selection-start-column="47" selection-end-line="299" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/filters/filter_indices.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="102" column="6" selection-start-line="102" selection-start-column="6" selection-end-line="102" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/include/pcl-1.7/pcl/io/grabber.h" />
+    <entry file="file:///usr/include/c++/5/bits/stl_algo.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/filters/project_inliers.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/ModelCoefficients.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/filters/extract_indices.h" />
+    <entry file="file:///usr/include/c++/5/bits/stl_vector.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/sample_consensus/sac.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/filters/filter_indices.h" />
     <entry file="file://$PROJECT_DIR$/DeterminePosition.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -423,26 +327,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/visualization/cloud_viewer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/include/pcl-1.7/pcl/visualization/cloud_viewer.h" />
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/a.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file:///usr/local/include/eigen3/Eigen/src/Core/util/Memory.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="897" column="6" lean-forward="true" selection-start-line="897" selection-start-column="6" selection-end-line="897" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/local/include/eigen3/Eigen/src/Core/util/Memory.h" />
     <entry file="file:///usr/include/boost/bind/bind.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4680">
@@ -460,27 +352,9 @@
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/openni_grabber.cbp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file:///usr/include/c++/5/bits/unique_ptr.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/common/impl/io.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="110" column="5" selection-start-line="110" selection-start-column="5" selection-end-line="110" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/segmentation/extract_clusters.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="400" column="6" lean-forward="true" selection-start-line="400" selection-start-column="6" selection-end-line="400" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/include/c++/5/bits/unique_ptr.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/common/impl/io.hpp" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/segmentation/extract_clusters.h" />
     <entry file="file:///usr/include/boost/smart_ptr/shared_ptr.hpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -495,55 +369,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/pcl_base.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="94" column="52" selection-start-line="94" selection-start-column="47" selection-end-line="94" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/search/kdtree.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="140" column="56" selection-start-line="140" selection-start-column="56" selection-end-line="140" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/PointIndices.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/point_representation.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="101" column="13" selection-start-line="101" selection-start-column="6" selection-end-line="101" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/kdtree/impl/kdtree_flann.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="171" column="40" selection-start-line="171" selection-start-column="33" selection-end-line="171" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/pcl_tests.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/search/organized.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="85" column="4" lean-forward="true" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file:///usr/include/pcl-1.7/pcl/pcl_base.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/search/kdtree.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/PointIndices.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/point_representation.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/kdtree/impl/kdtree_flann.hpp" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/pcl_tests.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/search/organized.h" />
     <entry file="file:///usr/include/assert.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
@@ -551,80 +383,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/point_cloud.h">
+    <entry file="file:///usr/include/pcl-1.7/pcl/point_cloud.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/filters/filter.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/common/point_tests.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/impl/point_types.hpp" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/search/impl/organized.hpp" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/search/search.h" />
+    <entry file="file:///usr/include/pcl-1.7/pcl/pcl_macros.h" />
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/test.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="408" column="35" lean-forward="true" selection-start-line="408" selection-start-column="35" selection-end-line="408" selection-end-column="35" />
+        <state relative-caret-position="300">
+          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/filters/filter.h">
+    <entry file="file://$PROJECT_DIR$/dectect_object_bak.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1149">
-          <caret line="81" column="27" lean-forward="true" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/common/point_tests.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
-          <folding>
-            <element signature="e#1879#1920#0" expanded="true" />
-            <element signature="e#2431#2433#0" expanded="true" />
-            <element signature="e#2512#2514#0" expanded="true" />
-            <element signature="e#4584#4586#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="42" column="51" lean-forward="true" selection-start-line="42" selection-start-column="51" selection-end-line="42" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dectect_object.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="145" column="37" selection-start-line="145" selection-start-column="37" selection-end-line="145" selection-end-column="37" />
+        <state relative-caret-position="240">
+          <caret line="216" column="26" lean-forward="true" selection-start-line="216" selection-start-column="26" selection-end-line="216" selection-end-column="26" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
+            <element signature="e#1413#1906#0" />
+            <element signature="e#1413#1446#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/impl/point_types.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8505">
-          <caret line="567" selection-start-line="567" selection-end-line="567" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/search/impl/organized.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5100">
-          <caret line="340" column="9" selection-start-line="340" selection-start-column="6" selection-end-line="340" selection-end-column="12" />
-          <folding>
-            <element signature="e#1854#1887#0" expanded="true" />
-            <element signature="e#2080#2097#0" expanded="true" />
-            <element signature="e#4560#4577#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/search/search.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6030">
-          <caret line="402" column="27" selection-start-line="402" selection-start-column="27" selection-end-line="402" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/include/pcl-1.7/pcl/pcl_macros.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="112" column="38" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
         </state>
       </provider>
     </entry>
