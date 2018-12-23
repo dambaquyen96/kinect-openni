@@ -16,9 +16,20 @@
 #include <pcl/sample_consensus/sac_model_plane.h>
 #include <pcl/sample_consensus/sac_model_normal_plane.h>
 #include <pcl/surface/convex_hull.h>
+#include <cmath>
+#include <math.h>
+#include "DeterminePosition.h"
+#include "Location.h"
+
+// init library of OpenCV
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/core/cuda.hpp>
 
 class SimpleOpenNIViewer {
-    public:
+public:
     SimpleOpenNIViewer () : viewer ("PCL OpenNI Viewer") {}
 
     void applyRANSAC(const pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud,
@@ -29,61 +40,6 @@ class SimpleOpenNIViewer {
         norm_est.setNormalSmoothingSize(10.0f);
         norm_est.setInputCloud (cloud);
         norm_est.compute (*normals_out);
-//        // Create a shared plane model pointer directly
-//        pcl::SampleConsensusModelNormalPlane<pcl::PointXYZRGBA, pcl::Normal>::Ptr
-//         model (new pcl::SampleConsensusModelNormalPlane<pcl::PointXYZRGBA, pcl::Normal> (cloud));
-//        // Set normals
-//        model->setInputNormals(normals_out);
-////        model.setInputNormals(normals_out);
-//        // Set the normal angular distance weight.
-//        model->setNormalDistanceWeight(0.5f);
-////        model.setNormalDistanceWeight(0.5f);
-//        // Create the RANSAC object
-//        pcl::RandomSampleConsensus<pcl::PointXYZRGBA> sac (model, 0.03);
-//        // perform the segmenation step
-//        bool result = sac.computeModel ();
-    }
-
-    void Extract_Object(const pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud,
-                       pcl::PointCloud<pcl::PointXYZRGBA>::Ptr &cloud_objects) {
-        // Input
-//        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_objects; // points belonging to objects
-        // Output vector of objects, one point cloud per object
-        std::vector<pcl::PointCloud<pcl::PointXYZRGBA>::Ptr> objects;
-        pcl::EuclideanClusterExtraction<pcl::PointXYZRGBA> cluster;
-        cluster.setInputCloud(cloud_objects);
-        std::vector<pcl::PointIndices> object_clusters;
-        cluster.extract(object_clusters);
-        pcl::ExtractIndices<pcl::PointXYZRGBA> extract_object_indices;
-//        std::cout << "size of object: " << object_clusters.size() << std::endl;
-
-        int color_1[10] = {255,0,0,255,0,255};
-        int color_2[10] = {0,255,0,255,255,0};
-        int color_3[10] = {0,0,255,0,255,255};
-        for(int i=0; i < object_clusters.size(); ++i) {
-            pcl::PointCloud<pcl::PointXYZRGBA>::Ptr object_cloud(new pcl::PointCloud<pcl::PointXYZRGBA>);
-            extract_object_indices.setInputCloud(cloud);
-            extract_object_indices.setIndices(
-                    boost::make_shared<const pcl::PointIndices>(object_clusters[i]));
-            extract_object_indices.filter(*object_cloud);
-//            std::cerr << object_cloud->points[0] << std::endl;
-//            objects.push_back(object_cloud);
-            cloud_objects->points.resize (cloud->size ());
-//            std::cout << "size of cluster_indices: " << cluster_indices[j].indices.size () << std::endl;
-//                    cloud_out->header   = cloud->header;
-//                    cloud_out->width    = cloud->width;
-//                    cloud_out->height   = 1;
-//                    cloud_out->is_dense = cloud->is_dense;
-//                    cloud_out->sensor_orientation_ = cloud->sensor_orientation_;
-//                    cloud_out->sensor_origin_ = cloud->sensor_origin_;
-            for (int j = 0; j < object_clusters[i].indices.size (); ++j) {
-                cloud_objects->points[j] = cloud->points[object_clusters[i].indices[j]];
-                cloud_objects->points[j].r = color_1[i%6];
-                cloud_objects->points[j].g = color_2[i%6];
-                cloud_objects->points[j].b = color_3[i%6];
-            }
-        }
-//        std::cout << "size of object: " << objects[0]->size() << std::endl;
     }
 
     void removeTable(const pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud,
@@ -117,9 +73,10 @@ class SimpleOpenNIViewer {
                 boost::make_shared<const pcl::PointIndices>(object_indices));
         extract_object_indices.filter(cloud_out);
     }
-
-    void applyRANSAC2(const pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud,
-                      pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud_out, bool negative){
+    void applyRANSAC2(const pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud_origin,
+                      const pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud,
+                      pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud_out, cv::Mat frame_rgb,bool negative){
+        double st_1 = pcl::getTime ();
         std::vector<int> inliers;
         pcl::SampleConsensusModelPlane<pcl::PointXYZRGBA>::Ptr
                 model(new pcl::SampleConsensusModelPlane<pcl::PointXYZRGBA> (cloud));
@@ -138,11 +95,29 @@ class SimpleOpenNIViewer {
         for (int i=0; i<coefficients.size(); i++) {
             coeff.push_back(coefficients[i]);
         }
+        std::vector<int> inliers_origin;
         table_coefficients->values = coeff;
-        removeTable(cloud, indices, table_coefficients, *cloud_out);
-        Extract_Object(cloud, cloud_out);
+        pcl::SampleConsensusModelPlane<pcl::PointXYZRGBA> modelPlane(cloud_origin);
+//        modelPlane.selectWithinDistance(coefficients, .01, inliers_origin);
+//        indices->indices = inliers_origin;
+//        int position = 0;
 
+        pcl::copyPointCloud(*cloud, *cloud_out);
+//        std::cout << "size of 1: " << inliers.size() << " size of 2: " << inliers_origin.size() << std::endl;
+
+//        for (int i=0; i<inliers_origin.size(); i++) {
+//            cloud_out->points[inliers_origin[i]].r = 255;
+//            cloud_out->points[inliers_origin[i]].b = 0;
+//            cloud_out->points[inliers_origin[i]].g = 165;
+//        }
+//        std::cout << "w = " << cloud_out->width << " h = " << cloud_out->height << std::endl;
+
+//        double st_1 = pcl::getTime ();
+//        removeTable(cloud, indices, table_coefficients, *cloud_out);
+//        std::cout << "fps of remove plane = " << 1.0/(pcl::getTime() - st_1) <<std::endl;
+//        negative = false;
         if (negative) {
+            double st = pcl::getTime ();
 //             Remove the plane indices from the data
             pcl::PointIndices::Ptr everything_but_the_plane (new pcl::PointIndices);
             std::vector<int> indices_fullset (cloud->size ());
@@ -153,7 +128,9 @@ class SimpleOpenNIViewer {
             set_difference (indices_fullset.begin (), indices_fullset.end (),
                             inliers.begin (), inliers.end (),
                             inserter (everything_but_the_plane->indices, everything_but_the_plane->indices.begin ()));
-
+            std::cout << "size1 = " << inliers.size()
+                      << " size2 = " << everything_but_the_plane->indices.size()
+                      << " total = " << everything_but_the_plane->indices.size() +inliers.size() << std::endl;
 //             Extract largest cluster minus the plane
             std::vector<pcl::PointIndices> cluster_indices;
             pcl::EuclideanClusterExtraction<pcl::PointXYZRGBA> ec;
@@ -168,27 +145,53 @@ class SimpleOpenNIViewer {
                 int color_1[10] = {255,0,0,255,0,255};
                 int color_2[10] = {0,255,0,255,255,0};
                 int color_3[10] = {0,0,255,0,255,255};
-//                std::cout << "size of cluster_indices: " << cluster_indices.size() << std::endl;
                 int position = 0;
+                double distance = 11.0;
+                pcl::PointXYZRGBA OXYZ;
+                OXYZ.x = 0;
+                OXYZ.y = 0;
+                OXYZ.z = 0;
+                DeterminePosition dp;
                 for (int j=0; j<cluster_indices.size(); j++) {
-                    cloud_out->points.resize (cloud->size ());
-//                    std::cout << "size of cluster_indices: " << cluster_indices[j].indices.size () << std::endl;
-//                    cloud_out->header   = cloud->header;
-//                    cloud_out->width    = cloud->width;
-//                    cloud_out->height   = 1;
-//                    cloud_out->is_dense = cloud->is_dense;
-//                    cloud_out->sensor_orientation_ = cloud->sensor_orientation_;
-//                    cloud_out->sensor_origin_ = cloud->sensor_origin_;
+                    double max_x = -100, min_x = 10000, max_y = -100, min_y = 10000;
                     for (int i = 0; i < cluster_indices[j].indices.size (); ++i) {
-                        cloud_out->points[i+position] = cloud->points[cluster_indices[j].indices[i]];
-                        cloud_out->points[i+position].r = color_1[j%6];
-                        cloud_out->points[i+position].g = color_2[j%6];
-                        cloud_out->points[i+position].b = color_3[j%6];
+                        cloud_out->points[cluster_indices[j].indices[i]].r = color_1[j%6];
+                        cloud_out->points[cluster_indices[j].indices[i]].g = color_2[j%6];
+                        cloud_out->points[cluster_indices[j].indices[i]].b = color_3[j%6];
+//                        int k = cluster_indices[j].indices[i];
+//                        if(max_x < cloud_out->points[cluster_indices[j].indices[i]].x)
+//                            max_x = cloud_out->points[cluster_indices[j].indices[i]].x;
+//                        if(min_x > cloud_out->points[cluster_indices[j].indices[i]].x)
+//                            min_x = cloud_out->points[cluster_indices[j].indices[i]].x;
+//                        if(max_y < cloud_out->points[cluster_indices[j].indices[i]].y)
+//                            max_y = cloud_out->points[cluster_indices[j].indices[i]].y;
+//                        if(min_y > cloud_out->points[cluster_indices[j].indices[i]].y)
+//                            min_y = cloud_out->points[cluster_indices[j].indices[i]].y;
+//                        double pointTopoint = dp.DistanceFromPointToPoint(OXYZ, cloud_out->points[cluster_indices[j].indices[i]]);
+//                        double point1ToPlane = dp.DistanceFromPointToPlance(coefficients, OXYZ);
+//                        double point2ToPlane = dp.DistanceFromPointToPlance(coefficients,cloud_out->points[cluster_indices[j].indices[i]]);
+//                        double dis = dp.DistanceHeight(pointTopoint, point1ToPlane, point2ToPlane);
+//                        if (distance > dis) distance = dis;
                     }
-                    position += cluster_indices[j].indices.size ();
+                    if (j<0) {
+                        double w = max_x - min_x;
+                        double h = max_y - min_y;
+                        double x = min_x;
+                        double y = max_y;
+                        // Crop image
+                        cv::Rect roi;
+                        roi.x = int(x);
+                        roi.y = int(y);
+                        roi.width = int(w);
+                        roi.height = int(h);
+                        std::cout << "x = " << roi.x << "y = " << roi.y << "w = " << roi.width << " h = " << roi.height << std::endl;
+//                        cv::Mat image_crop = frame_rgb(roi);
+                    }
                 }
-//                pcl::copyPointCloud(*cloud, cluster_indices[1].indices, *cloud_out);
+                std::cout << "size of object = " << cluster_indices.size() << " " << "distance = " << distance << std::endl;
             }
+
+            std::cout << "fps of labeling = " << 1.0/(pcl::getTime() - st) <<std::endl;
         }
         else {
             // Convert data back
@@ -198,39 +201,39 @@ class SimpleOpenNIViewer {
 
     void cloud_cb_ (const pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr &cloud) {
         static unsigned count = 0;
-	    static double last = pcl::getTime ();
-	    if (++count == 1) {
-	        double now = pcl::getTime ();
-	        std::cout << "distance of center pixel :" << cloud->points [(cloud->width >> 1) * (cloud->height + 1)].z << " mm. Average framerate: " << double(count)/double(now - last) << " Hz" <<  std::endl;
-	        count = 0;
-	        last = now;
-	    }
+        static double last = pcl::getTime ();
+        if (++count == 1) {
+            double now = pcl::getTime();
+//            std::cout << "so la: " << (cloud->width >> 1) * (cloud->height + 1) << std::endl;
+//            std::cout << "distance of center pixel :" << cloud->points [(cloud->width >> 1) * (cloud->height + 1)].z << " mm. Average framerate: " << double(count)/double(now - last) << " Hz" <<  std::endl;
+            count = 0;
+            last = now;
+        }
 
-	    // Down sampling
+
+        cv::Mat frame_rgb(cv::Size(640,480), CV_8UC3);
+        for (int i=0; i<frame_rgb.rows; i++) {
+            for (int j=0; j<frame_rgb.cols; j++) {
+                cv::Vec3b rgb;
+                rgb[0] = cloud->points[j+i*640].r;
+                rgb[1] = cloud->points[j+i*640].g;
+                rgb[2] = cloud->points[j+i*640].b;
+                frame_rgb.at<cv::Vec3b>(i,j) = rgb;
+            }
+        }
+
+        double st2 = pcl::getTime ();
+        // Down sampling
         pcl::VoxelGrid<pcl::PointXYZRGBA> sor;
         pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud_out(new pcl::PointCloud<pcl::PointXYZRGBA>);
         sor.setInputCloud (cloud);
-        sor.setLeafSize (0.01f, 0.01f, 0.01f);
+        sor.setLeafSize (0.005f, 0.005f, 0.005f);
         sor.filter(*cloud_out);
-//        cloud_out->width = 640;
-//        cloud_out->height = 480;
-
-        // Filter
-//        pcl::FastBilateralFilter<pcl::PointXYZRGBA> filter;
-//        pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud_out(new pcl::PointCloud<pcl::PointXYZRGBA>);
-//        filter.setInputCloud (cloud_out);
-//        filter.setSigmaS (5);
-//        filter.setSigmaR (0.005f);
-//        filter.filter(*cloud_out);
-
-//        pcl::PointCloud<pcl::Normal>::Ptr normals_out(new pcl::PointCloud<pcl::Normal>);
-//        applyRANSAC(cloud, normals_out);
-
-//        pcl::PointCloud<pcl::PointXYZRGBA>::Ptr cloud_out(new pcl::PointCloud<pcl::PointXYZRGBA>);
-        applyRANSAC2(cloud_out, cloud_out, true);
-
-	    if (!viewer.wasStopped())
-	        viewer.showCloud(cloud_out);
+//        std::cout << "w = " << cloud_out->width << " h = " << cloud_out->height << " size = " << cloud_out->size() << std::endl;
+        applyRANSAC2(cloud, cloud_out, cloud_out, frame_rgb, true);
+        std::cout << "fps of VoxelGrid = " << 1.0/(pcl::getTime() - st2) <<std::endl;
+        if (!viewer.wasStopped())
+            viewer.showCloud(cloud_out);
     }
 
     void run () {
@@ -249,7 +252,7 @@ class SimpleOpenNIViewer {
 };
 
 int main () {
-   SimpleOpenNIViewer v;
-   v.run ();
-   return 0;
+    SimpleOpenNIViewer v;
+    v.run ();
+    return 0;
 }
